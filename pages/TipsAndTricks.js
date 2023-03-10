@@ -2,6 +2,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react'
 import { Navbar } from 'react-bootstrap';
 import { db } from '../Firebase';
+import NavbarHeading from './Components/Navbar';
 import ColorSchemesExample from './Components/Navbar';
 import Post from './Components/Post';
 
@@ -24,7 +25,7 @@ const TipsAndTricks = () => {
     }, [])
   return (
     <div>
-    <ColorSchemesExample />
+    <NavbarHeading />
         <h1>Tips and Tricks</h1>
         <a href='/AddTipsTricks'>Add Post</a>
 

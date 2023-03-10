@@ -8,6 +8,8 @@ import {AiOutlineLike} from "react-icons/ai"
 import {AiFillLike} from "react-icons/ai"
 import Comment from '../Components/Comment';
 import ColorSchemesExample from '../Components/Navbar';
+import Navbar from '../Components/Navbar';
+import NavbarHeading from '../Components/Navbar';
 const Postid = () => {
     const router = useRouter();
     const { id } = router.query;
@@ -94,7 +96,7 @@ const Postid = () => {
     }, [!loading])
   return (
     <div>
-    <ColorSchemesExample />
+    <NavbarHeading />
     {user && data.length !== 0 ? (
     <div>
         <h1>

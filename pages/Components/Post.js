@@ -7,6 +7,8 @@ const Post = ({ post }) => {
     <div>
         <h2><a href={`/post/${post.id}`}>{post.name}</a></h2>
         <small>By: {post.author}</small>
+        <br />
+        <span>Likes: {post.likes.length}</span>
     </div>
   )
 }

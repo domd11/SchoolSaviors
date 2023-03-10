@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../Firebase';
 
-function ColorSchemesExample() {
+function NavbarHeading() {
   const [user, loading] = useAuthState(auth)
   return (
     <>
@@ -17,6 +17,9 @@ function ColorSchemesExample() {
             <Nav.Link href="/StudyForum">Forum</Nav.Link>
             <Nav.Link href="/TipsAndTricks">Tips & Tricks</Nav.Link>
           </Nav>
+          <Nav className='justify-content-end'>
+            <Nav.Link href='/Account' style={{ color: "white" }}>Signed in as: <span style={{ textDecoration: "underline", color: "darkgray" }}>{user.displayName}</span></Nav.Link>
+          </Nav>
         </Container>
       </Navbar>
       ) : ""}
@@ -25,4 +28,4 @@ function ColorSchemesExample() {
   );
 }
 
-export default ColorSchemesExample;
+export default NavbarHeading;

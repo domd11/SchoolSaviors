@@ -191,3 +191,10 @@ p > a {
   outline: none;
   border-color: black;
 }
+
+h2 > a {
+  color: black;
+}
+
+
+

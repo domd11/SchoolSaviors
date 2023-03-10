@@ -3,6 +3,8 @@ import { useRouter } from 'next/router'
 import React, { useEffect, useRef, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, db } from '../../Firebase';
+import NavbarHeading from '../Components/Navbar';
+import Navbar from '../Components/Navbar';
 import ColorSchemesExample from '../Components/Navbar';
 import Response from '../Components/Response';
 
@@ -72,7 +74,7 @@ const ForumPost = () => {
  
   return (
     <div>
-    <ColorSchemesExample />
+    <NavbarHeading />
       <h2>{data.heading}</h2>
       <p>{data.author}</p>
       <small>{data.dateAdded}</small>

@@ -9,6 +9,8 @@ import { useAuthState } from "react-firebase-hooks/auth"
 const inter = Inter({ subsets: ['latin'] })
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ColorSchemesExample from './Components/Navbar'
+import Navbar from './Components/Navbar'
+import NavbarHeading from './Components/Navbar'
 
 export default function Home() {
 
@@ -27,7 +29,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <ColorSchemesExample />
+      <NavbarHeading />
       <main className={styles.main}>
         {user ? <HomePage auth={auth} /> : (
           <>

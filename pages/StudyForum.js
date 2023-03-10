@@ -4,6 +4,8 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { AiFillDelete, AiFillPlusCircle, AiFillPlusSquare } from 'react-icons/ai';
 import { auth, db } from '../Firebase';
 import ForumPost from './Components/ForumPost';
+import NavbarHeading from './Components/Navbar';
+import Navbar from './Components/Navbar';
 import ColorSchemesExample from './Components/Navbar';
 import TopicForm from './Components/TopicForm';
 
@@ -70,7 +72,7 @@ const [topics, setTopics] = useState([]);
  
   return (
     <div className='forum'>
-    <ColorSchemesExample />
+    <NavbarHeading />
       <h1>Study Forum</h1>
       <input ref={heading} style={{ height: "50px", width: "100%", paddingLeft: "10px" }} />
       <br />
