@@ -8,6 +8,9 @@ import NavbarHeading from './Components/Navbar';
 import Navbar from './Components/Navbar';
 import ColorSchemesExample from './Components/Navbar';
 import TopicForm from './Components/TopicForm';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import { Button, FloatingLabel } from 'react-bootstrap';
 
 const Forum = () => {
   const heading = useRef(null); 
@@ -59,7 +62,7 @@ const [topics, setTopics] = useState([]);
 
   const removeTopic = (item) => {
     console.log(item)
-    topics.slice(`${item}`, 1)
+    topics.splice(`${item}`, 1)
     setTopics([...topics])
     console.log(topics)
   } 
@@ -73,25 +76,53 @@ const [topics, setTopics] = useState([]);
   return (
     <div className='forum'>
     <NavbarHeading />
-      <h1>Study Forum</h1>
-      <input ref={heading} style={{ height: "50px", width: "100%", paddingLeft: "10px" }} />
-      <br />
-      <textarea ref={content} style={{ width: "100%", height: "100px" }}/>
-      <input ref={topic} style={{ paddingLeft: "10px" }} /><AiFillPlusSquare style={{ height: "32px", width: "32px" }} onClick={addTopic} />
-      <div>
-      <ul>
-      {topics.map((x) => {
-        return <div>
-          <li>{x} <AiFillDelete onClick={() => removeTopic(x)} /></li>
-          
+      {user ? (
+        <div>
+        <h1>Study Forum</h1>
+        <InputGroup size="lg">
+        <InputGroup.Text id="inputGroup-sizing-lg">Heading</InputGroup.Text>
+        <Form.Control
+          aria-label="Large"
+          aria-describedby="inputGroup-sizing-sm"
+          ref={heading}
+        />
+      </InputGroup>        <br />
+      <FloatingLabel controlId="floatingTextarea2" label="Description">
+      <Form.Control
+        as="textarea"
+        placeholder="Leave a comment here"
+        style={{ height: '100px' }}
+        ref={content}
+      />
+    </FloatingLabel>        
+    <br />
+    <InputGroup className="mb-3">
+    <InputGroup.Text id="inputGroup-sizing-default">
+    <Button onClick={addTopic} variant="secondary" style={{ display: "inline" }}>Add Topic</Button>
+    </InputGroup.Text>
+    <Form.Control
+      aria-label="Default"
+      aria-describedby="inputGroup-sizing-default"
+      ref={topic}
+    />
+  </InputGroup>
+  <div>
+        <ul>
+        {topics.map((x) => {
+          return <div>
+            <span>{x} </span>
+            <Button variant="danger" onClick={() => removeTopic(x)}>Delete Topic</Button>
+            <br />
+          </div>
+        })}
+        </ul>
         </div>
-      })}
-      </ul>
-      </div>
-      <button onClick={post} style={{ padding: "0px 30px", borderRadius: "100px" }}>Post</button>
-      {posts.map((post) => {
-        return <ForumPost post={post} />
-      })}
+        <Button onClick={post}>Post</Button>
+        {posts.map((post) => {
+          return <ForumPost post={post} />
+        })}
+        </div>
+      ) : ""}
     </div>
   )
 }

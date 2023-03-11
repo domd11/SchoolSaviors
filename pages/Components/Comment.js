@@ -3,6 +3,8 @@ import React from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { AiFillLike, AiOutlineLike } from 'react-icons/ai'
 import { auth, db } from '../../Firebase'
+import Card from 'react-bootstrap/Card';
+import { Button } from 'react-bootstrap'
 
 const Comment = ({ comment, id, getComments }) => {
 const date = Date.toString(comment.dateAdded)
@@ -41,18 +43,32 @@ const date = Date.toString(comment.dateAdded)
 
     
   return (
-    <div className='comment'>
-        <p>{comment.comment}</p>
-        <small>{comment.name}</small>
-        <br />
-        <small>{comment.dateAdded}</small>
-        <br />
+    <Card style={{ marginTop: "10px" }}>
+      <Card.Header>{comment.name}</Card.Header>
+      <Card.Body>
+        <Card.Title>{comment.comment}</Card.Title>
+        <Card.Text style={{ paddingBottom: "0px", marginBottom: "0px" }}>
+            {comment.dateAdded}
+        </Card.Text>
         {comment.likes.includes(user.email) ? <AiFillLike onClick={unlike} /> : <AiOutlineLike onClick={like} />}{comment.likes.length}
         <br />
-        {user.uid === comment.author ? <button onClick={deletePost}>Delete Comment</button> : ""}
-        <br />
-    </div>
+        {user.uid === comment.author ? <Button variant='danger' onClick={deletePost}>Delete Comment</Button> : ""}
+      </Card.Body>
+    </Card>
   )
 }
+
+
+// <div className='comment'>
+//         <p>{comment.comment}</p>
+//         <small>{comment.name}</small>
+//         <br />
+//         <small>{comment.dateAdded}</small>
+//         <br />
+        // {comment.likes.includes(user.email) ? <AiFillLike onClick={unlike} /> : <AiOutlineLike onClick={like} />}{comment.likes.length}
+//         <br />
+//         {user.uid === comment.author ? <button onClick={deletePost}>Delete Comment</button> : ""}
+//         <br />
+//     </div>
 
 export default Comment

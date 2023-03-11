@@ -4,12 +4,14 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 import { auth, db } from '../../Firebase';
-import {AiOutlineLike} from "react-icons/ai"
+import {AiFillStar, AiOutlineLike, AiOutlineStar} from "react-icons/ai"
 import {AiFillLike} from "react-icons/ai"
 import Comment from '../Components/Comment';
 import ColorSchemesExample from '../Components/Navbar';
 import Navbar from '../Components/Navbar';
 import NavbarHeading from '../Components/Navbar';
+import { Button } from 'react-bootstrap';
+
 const Postid = () => {
     const router = useRouter();
     const { id } = router.query;
@@ -116,15 +118,34 @@ const Postid = () => {
                 <span name="likes">Likes: {data.likes.length}</span>
             </div>
             )}
-            {user.uid === data.authorId ? <button onClick={deletePost}>Delete Post</button> : ""}
+
+            {data.bookmarks.length !== 0 || data.bookmarks.includes(user.email) ?  (
+                
+                      <AiFillStar />
+                    
+        ) : (
+            
+               <AiOutlineStar />
+            
+            )}
+            <br />
+            {user.uid === data.authorId ? <Button variant='danger' onClick={deletePost}>Delete Post</Button> : ""}
         <hr />
         <div className='markdown-div'><ReactMarkdown children={data.content} /></div>
         <br />
         <h2>Comments:</h2>
         <div>
-            <textarea style={{ width: "50%", padding: "10px", height: "100px" }} ref={comment} />
+        <FloatingLabel controlId="floatingTextarea2" label="Comments">
+        <Form.Control
+          as="textarea"
+          placeholder="Leave a comment here"
+          style={{ height: '100px' }}
+          ref={comment}
+        />
+      </FloatingLabel>
+        
             <br />
-            <button style={{ padding: "10px" }} onClick={addComment}>Add Comment</button>
+            <Button variant='secondary' style={{ padding: "10px" }} onClick={addComment}>Add Comment</Button>
         </div>
         <div>
             {comments.map((comment) => {

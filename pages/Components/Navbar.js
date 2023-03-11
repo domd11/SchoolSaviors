@@ -22,7 +22,18 @@ function NavbarHeading() {
           </Nav>
         </Container>
       </Navbar>
-      ) : ""}
+      ) : (
+        <Navbar  style={{ margin: "0px" }} bg="secondary" variant="dark">
+        <Container  style={{ margin: "0px" }}>
+          <Navbar.Brand href="/">SchoolSavior</Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link href="/">Home</Nav.Link>
+          </Nav>
+          <Nav className='justify-content-end'>
+          </Nav>
+        </Container>
+      </Navbar>
+      )}
   
     </>
   );

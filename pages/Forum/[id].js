@@ -75,6 +75,8 @@ const ForumPost = () => {
   return (
     <div>
     <NavbarHeading />
+     {user ? (
+      <div>
       <h2>{data.heading}</h2>
       <p>{data.author}</p>
       <small>{data.dateAdded}</small>
@@ -93,6 +95,8 @@ const ForumPost = () => {
       {responses.map((x) => {
         return <Response response={x} getResponses={getResponses} id={id}  />
       })}
+      </div>
+     ) : ""}
     </div>
   )
 }

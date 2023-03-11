@@ -11,6 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ColorSchemesExample from './Components/Navbar'
 import Navbar from './Components/Navbar'
 import NavbarHeading from './Components/Navbar'
+import { Button } from 'react-bootstrap'
 
 export default function Home() {
 
@@ -34,7 +35,7 @@ export default function Home() {
         {user ? <HomePage auth={auth} /> : (
           <>
           <h1>SchoolSavior</h1>
-          <button onClick={login}>Login</button>
+          <Button variant='primary' onClick={login}>Login</Button>
           </>
         )}
       </main>
