@@ -35,9 +35,9 @@ const TipsAndTricks = () => {
             <hr />
     
             {posts.length === 0 ? <h1>There are currently no posts. Add One!</h1> : (
-                <div style={{ display: "flex" }}>
+                <div style={{ display: "flex", width: "100%"}}>
                 {posts.map((post) => {
-                    return <Post post={post} style={{ marginRight: "10px" }} />
+                    return <Post post={post} style={{ marginRight: "10px", width: "50%" }} />
                 })}
                 </div>
             )}

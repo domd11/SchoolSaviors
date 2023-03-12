@@ -8,6 +8,7 @@ const HomePage = () => {
   const router = useRouter();
 
   const [posts, setPosts] = useState([]); 
+  
 
   const getData = async () => {
     const ref = collection(db, "tips-tricks"); 
@@ -34,7 +35,9 @@ useEffect(() => {
             {posts.map(post => {
               return (
                 <div>
-                {post.bookmarks.includes(user.email) ? <Post post={post} /> : "" }
+                {post.bookmarks.length !== 0 ? (
+                  post.bookmarks.includes(user.email) ? <Post post={post} /> : ""
+                ) : ""}
               </div>
               )
             })}

@@ -9,9 +9,9 @@ const Post = ({ post }) => {
     const router = useRouter();
   const [user,  loading] = useAuthState(auth);
   return (
-    <div>
+    <div style={{ width: "50%" }}>
       {user ? (
-        <Card className="text-center" style={{  width: "50%", marginRight: "10px" }}>
+        <Card className="text-center" style={{ marginRight: "10px" }}>
     <Card.Header>{post.author}</Card.Header>
     <Card.Body>
       <Card.Title>{post.name}</Card.Title>
