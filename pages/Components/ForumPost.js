@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { auth } from '../../Firebase'
 
 const ForumPost = ({ post }) => {
   const [topics, setTopics] = useState([])
+  
+  const [user, loading] =  useAuthState(auth)
 
   useEffect(() => {
     setTopics(post.topics)
