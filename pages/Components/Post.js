@@ -1,13 +1,17 @@
 import { useRouter } from 'next/router';
-import React from 'react'
+import React, { useState } from 'react'
 import { PopoverBody } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../../Firebase';
 const Post = ({ post }) => {
     const router = useRouter();
-  console.log(post.id)
+  const [user,  loading] = useAuthState(auth);
   return (
-    <Card className="text-center" style={{  width: "50%", marginRight: "10px" }}>
+    <div>
+      {user ? (
+        <Card className="text-center" style={{  width: "50%", marginRight: "10px" }}>
     <Card.Header>{post.author}</Card.Header>
     <Card.Body>
       <Card.Title>{post.name}</Card.Title>
@@ -19,6 +23,8 @@ const Post = ({ post }) => {
     </Card.Body>
     <Card.Footer className="text-muted">{post.dateAdded}</Card.Footer>
   </Card>
+      ) : ""}
+    </div>
   )
 }
 

@@ -43,7 +43,9 @@ const date = Date.toString(comment.dateAdded)
 
     
   return (
-    <Card style={{ marginTop: "10px" }}>
+    <div>
+      {user ? (
+        <Card style={{ marginTop: "10px" }}>
       <Card.Header>{comment.name}</Card.Header>
       <Card.Body>
         <Card.Title>{comment.comment}</Card.Title>
@@ -55,6 +57,8 @@ const date = Date.toString(comment.dateAdded)
         {user.uid === comment.author ? <Button variant='danger' onClick={deletePost} style={{ marginTop: "10px" }}>Delete Comment</Button> : ""}
       </Card.Body>
     </Card>
+      ) : ""}
+    </div>
   )
 }
 

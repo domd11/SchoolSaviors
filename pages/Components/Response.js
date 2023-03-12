@@ -31,7 +31,8 @@ const Response = ({ response, getResponses, id }) => {
   return (
     <div>
     <br />
-    <Card>
+    {user ? (
+      <Card>
       <Card.Header>{response.added}</Card.Header>
       <Card.Body>
         <Card.Title>{response.response}</Card.Title>
@@ -43,6 +44,7 @@ const Response = ({ response, getResponses, id }) => {
         {user.uid === response.authorId ? <Button style={{ marginTop: "10px" }}  variant='danger' onClick={remove}>Delete Response</Button> : ""}
         </Card.Body>
     </Card>
+    ) : ""}
     </div>
   )
 }

@@ -8,13 +8,17 @@ const ForumPost = ({ post }) => {
   }, [])
   return (
     <div>
-        <h2><a href={`/Forum/${post.id}`}>{post.heading}</a></h2>
-        <p>{post.authorName}</p>
-        <small>{post.dateAdded}</small>
-        <br />
-        {post.topics.map((x) => {
-          return <span className='topic'>{x}</span>
-        })}
+        {user ? (
+          <>
+          <h2><a href={`/Forum/${post.id}`}>{post.heading}</a></h2>
+          <p>{post.authorName}</p>
+          <small>{post.dateAdded}</small>
+          <br />
+          {post.topics.map((x) => {
+            return <span className='topic'>{x}</span>
+          })}
+          </>
+        ) : ""}
     </div>
   )
 }
