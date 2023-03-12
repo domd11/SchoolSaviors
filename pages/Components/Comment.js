@@ -7,8 +7,7 @@ import Card from 'react-bootstrap/Card';
 import { Button } from 'react-bootstrap'
 
 const Comment = ({ comment, id, getComments }) => {
-const date = Date.toString(comment.dateAdded)
-    console.log(comment.dateAdded)
+    const date = Date.toString(comment.dateAdded)
 
     const [user, loading] = useAuthState(auth)
 
