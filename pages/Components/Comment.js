@@ -47,12 +47,12 @@ const date = Date.toString(comment.dateAdded)
       <Card.Header>{comment.name}</Card.Header>
       <Card.Body>
         <Card.Title>{comment.comment}</Card.Title>
-        <Card.Text style={{ paddingBottom: "0px", marginBottom: "0px" }}>
+        <Card.Text style={{ paddingBottom: "0px", marginBottom: "5px" }}>
             {comment.dateAdded}
         </Card.Text>
         {comment.likes.includes(user.email) ? <AiFillLike onClick={unlike} /> : <AiOutlineLike onClick={like} />}{comment.likes.length}
         <br />
-        {user.uid === comment.author ? <Button variant='danger' onClick={deletePost}>Delete Comment</Button> : ""}
+        {user.uid === comment.author ? <Button variant='danger' onClick={deletePost} style={{ marginTop: "10px" }}>Delete Comment</Button> : ""}
       </Card.Body>
     </Card>
   )

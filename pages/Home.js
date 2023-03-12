@@ -9,8 +9,8 @@ const HomePage = () => {
       {auth.currentUser ? (
         <div>
           <h1>Hello, {user.displayName}!</h1>
-            <p><a href="/TipsAndTricks">Studying Tips and Tricks</a></p>
-            <p><a href="/StudyForum">Study Forum</a></p>
+            <h2>Bookmarked Forums:</h2>
+            <h2>Bookmarked Tips & Tricks:</h2>
         </div>
       ) : ""}
     </div>

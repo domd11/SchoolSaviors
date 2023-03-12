@@ -10,7 +10,7 @@ import Comment from '../Components/Comment';
 import ColorSchemesExample from '../Components/Navbar';
 import Navbar from '../Components/Navbar';
 import NavbarHeading from '../Components/Navbar';
-import { Button } from 'react-bootstrap';
+import { Button, FloatingLabel, Form } from 'react-bootstrap';
 
 const Postid = () => {
     const router = useRouter();
@@ -45,6 +45,8 @@ const Postid = () => {
     
 
     }
+
+    
     
     const like = async () => {
         const ref = doc(db, "tips-tricks", id); 
@@ -89,6 +91,24 @@ const Postid = () => {
         getComments();
     }
 
+    const bookmark = async () => {
+        const ref = doc(db, "tips-tricks", id); 
+        await updateDoc(ref, {
+            bookmarks: arrayUnion(user.email)
+        })
+
+        getData();
+    }
+
+    const unbookmark = async () => {
+        const ref = doc(db, "tips-tricks", id)
+        await updateDoc(ref, {
+            bookmarks: arrayRemove(user.email),
+        })
+
+        getData();
+    }
+
     useEffect(() => {
         if (user && !loading) {
             console.log(id)
@@ -121,13 +141,14 @@ const Postid = () => {
 
             {data.bookmarks.length !== 0 || data.bookmarks.includes(user.email) ?  (
                 
-                      <AiFillStar />
+                      <AiFillStar onClick={unbookmark} />
                     
         ) : (
             
-               <AiOutlineStar />
+               <AiOutlineStar onClick={bookmark} />
             
             )}
+            <span>|Bookmarks: {data.bookmarks.length}</span>
             <br />
             {user.uid === data.authorId ? <Button variant='danger' onClick={deletePost}>Delete Post</Button> : ""}
         <hr />

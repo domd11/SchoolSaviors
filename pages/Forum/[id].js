@@ -1,6 +1,7 @@
 import { addDoc, collection, doc, getDoc, getDocs } from 'firebase/firestore';
 import { useRouter } from 'next/router'
 import React, { useEffect, useRef, useState } from 'react'
+import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, db } from '../../Firebase';
 import NavbarHeading from '../Components/Navbar';
@@ -77,8 +78,8 @@ const ForumPost = () => {
     <NavbarHeading />
      {user ? (
       <div>
-      <h2>{data.heading}</h2>
-      <p>{data.author}</p>
+      <h1>{data.heading}</h1>
+      <span>{data.author}</span>
       <small>{data.dateAdded}</small>
       {data.topics && data.topics.length > 0 ? (
         <div>
@@ -89,9 +90,14 @@ const ForumPost = () => {
       ) : ""}
       <p><strong>{data.details}</strong></p>
       <br />
-      <textarea ref={respsonse} style={{ width: "100%", height:"100px" }} />
-      <br />
-      <button onClick={respond}>Add response</button>
+      <FloatingLabel
+        controlId="floatingTextarea"
+        label="Response"
+        className="mb-3"
+      >
+        <Form.Control as="textarea" ref={respsonse} placeholder="Leave a comment here" style={{ height: "75px" }}/>
+      </FloatingLabel>
+      <Button onClick={respond}>Add response</Button>
       {responses.map((x) => {
         return <Response response={x} getResponses={getResponses} id={id}  />
       })}
