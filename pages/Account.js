@@ -11,7 +11,7 @@ const Account = () => {
     <NavbarHeading />
 
         {user ? (
-            <div>
+            <div style={{ paddingTop: "70px" }}>
             <h1>{user.displayName}</h1>
             <Button variant="danger" onClick={() => auth.signOut()}>Sign Out</Button>
             </div>
