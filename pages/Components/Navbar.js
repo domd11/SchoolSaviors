@@ -14,8 +14,8 @@ function NavbarHeading() {
           <Navbar.Brand href="/">SchoolSavior</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/StudyForum">Forum</Nav.Link>
-            <Nav.Link href="/TipsAndTricks">Tips & Tricks</Nav.Link>
+            <Nav.Link color='white' href="/StudyForum">Forum</Nav.Link>
+            <Nav.Link color='white' href="/TipsAndTricks">Tips & Tricks</Nav.Link>
           </Nav>
           <Nav className='justify-content-end'>
             <Nav.Link href='/Account' style={{ color: "white" }}>Signed in as: <span style={{ textDecoration: "underline", color: "darkgray" }}>{user.displayName}</span></Nav.Link>
