@@ -9,7 +9,7 @@ function NavbarHeading() {
   return (
     <>
       {user ? (
-        <Navbar  style={{ margin: "0px" }} bg="secondary" variant="dark">
+        <Navbar fixed='top'  style={{ margin: "0px", marginBottom: "100px" }} bg="secondary" variant="dark">
         <Container  style={{ margin: "0px" }}>
           <Navbar.Brand href="/">SchoolSavior</Navbar.Brand>
           <Nav className="me-auto">

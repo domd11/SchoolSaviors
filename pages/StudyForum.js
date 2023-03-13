@@ -77,7 +77,7 @@ const [topics, setTopics] = useState([]);
     <div className='forum'>
     <NavbarHeading />
       {user ? (
-        <div>
+        <div style={{ paddingTop: "70px" }}>
         <h1>Study Forum</h1>
         <InputGroup size="lg">
         <InputGroup.Text id="inputGroup-sizing-lg">Heading</InputGroup.Text>

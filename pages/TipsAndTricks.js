@@ -28,7 +28,7 @@ const TipsAndTricks = () => {
     <div>
     <NavbarHeading />
         {user ? (
-            <div>
+            <div style={{ paddingTop: "70px" }}>
             <h1>Tips and Tricks</h1>
             <a href='/AddTipsTricks'>Add Post</a>
     

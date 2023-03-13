@@ -26,21 +26,23 @@ useEffect(() => {
 }, [])
 
   return (
-    <div>
+    <div style={{ marginTop: "0px", padding: "0px" }}>
       {auth.currentUser ? (
         <div>
-          <h1>Hello, {user.displayName}!</h1>
+          <h1 style={{ fontSize: "50px" }}><strong>Hello, {user.displayName}!</strong></h1>
             <h2>Bookmarked Forums:</h2>
             <h2>Bookmarked Tips & Tricks:</h2>
+            <div style={{ display: "flexbox", width: "100%" }}>
             {posts.map(post => {
               return (
-                <div>
+                <div style={{ display: "flexbox", width: "100%", marginBottom: "10px" }}>
                 {post.bookmarks.length !== 0 ? (
                   post.bookmarks.includes(user.email) ? <Post post={post} /> : ""
                 ) : ""}
               </div>
               )
             })}
+            </div>
         </div>
       ) : ""}
     </div>

@@ -120,7 +120,7 @@ const Postid = () => {
     <div>
     <NavbarHeading />
     {user && data.length !== 0 ? (
-    <div>
+    <div style={{ paddingTop: "70px" }}>
         <h1>
             {data.name}
         </h1>

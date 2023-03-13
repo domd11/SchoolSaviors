@@ -77,7 +77,7 @@ const ForumPost = () => {
     <div>
     <NavbarHeading />
      {user ? (
-      <div>
+      <div style={{ paddingTop: "70px" }}>
       <h1>{data.heading}</h1>
       <span>{data.author}</span>
       <small>{data.dateAdded}</small>

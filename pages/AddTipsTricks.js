@@ -42,7 +42,7 @@ const AddTipsTricks = () => {
     <div style={{ padding: "10px" }}>
     <NavbarHeading />
     {user ? (
-      <div>
+      <div style={{ paddingTop: "70px" }}>
       <p>Post titles cannot contain <strong>backslashes</strong> or <strong>question marks</strong></p>
       <InputGroup size="lg">
           <InputGroup.Text id="inputGroup-sizing-lg">Post Title</InputGroup.Text>
